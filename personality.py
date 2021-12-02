@@ -311,10 +311,10 @@ def predictMBTIPersonality(input, name):
     width = 0.4
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    rects1 = ax.bar(index, intj, width, color='blue')
+    rects1 = ax.bar(index, intj, width, color='#0d729c')
     
     esfp = axis2.loc['count']
-    rects2 = ax.bar(index, esfp, width, color='red')
+    rects2 = ax.bar(index, esfp, width, color='#f68657')
 
     fig.set_size_inches(10, 7)
 
