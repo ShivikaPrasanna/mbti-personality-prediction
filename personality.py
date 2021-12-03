@@ -48,7 +48,7 @@ print("Length of posts: ", len(df.iloc[1,1].split('|||')))
 types = np.unique(df.type.values)
 print("List of {} unique types: {}".format(len(types), types))
 
-total_types = df.groupby(['type']).count()*50
+total_types = df.groupby(['type']).count()
 print("Total count for each personality: ", total_types)
 
 # Visualizing the counts of the types
@@ -346,10 +346,11 @@ if test_file_path.endswith('.jsonl'):
 if test_file_path.endswith('.csv'):
     df = pd.read_csv(test_file_path)
     if 'tweet' in df.columns:
-      predicted_trait = predictMBTIPersonality(df['tweet'], name)
+        predicted_trait = predictMBTIPersonality(df['tweet'], name)
     elif 'content' in df.columns:
-      predicted_trait = predictMBTIPersonality(df['content'], name)
-
+        predicted_trait = predictMBTIPersonality(df['content'], name)
+    elif 'text' in df.columns:
+        predicted_trait = predictMBTIPersonality(df['text'], name)
 if test_file_path.endswith('.txt'):
     writings = open(test_file_path, encoding='unicode_escape')
     text = writings.readlines()
