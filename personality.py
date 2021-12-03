@@ -60,6 +60,13 @@ plt.ylabel('Number of posts', size = 12)
 plt.title('Total posts for each personality type')
 plt.savefig('types_counts.png')
 
+count_types = df['type'].value_counts()
+plt.figure(figsize=(12,4))
+sns.barplot(count_types.index, count_types.values, alpha=0.8)
+plt.ylabel('Number of Occurrences', fontsize=12)
+plt.xlabel('Types', fontsize=12)
+plt.savefig('ordered_types_counts.png')
+
 # Bag-of-words model creation: Split posts on personality and add to a Pandas Series
 all_posts = pd.DataFrame()
 for i in types:
